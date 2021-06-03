@@ -14,7 +14,7 @@ public protocol LayoutStackBehaviour {
 
 extension LayoutStackBehaviour where Self: UIViewController {
     @discardableResult
-    func HStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
+    public func HStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
         let stack = StackComponent(components: components).setAxis(.horizontal)
         view.addSubview(stack)
         stack.fillSuperview()
@@ -22,7 +22,7 @@ extension LayoutStackBehaviour where Self: UIViewController {
     }
     
     @discardableResult
-    func VStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
+    public func VStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
         let stack = StackComponent(components: components).setAxis(.vertical)
         view.addSubview(stack)
         stack.fillSuperview()
@@ -33,7 +33,7 @@ extension LayoutStackBehaviour where Self: UIViewController {
 extension LayoutStackBehaviour where Self: UIView {
     
     @discardableResult
-    func HStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
+    public func HStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
         let stack = StackComponent(components: components).setAxis(.horizontal)
         addSubview(stack)
         stack.fillSuperview()
@@ -41,7 +41,7 @@ extension LayoutStackBehaviour where Self: UIView {
     }
     
     @discardableResult
-    func VStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
+    public func VStack<Component: LayoutComponent>(@LayoutStackBuilder components: () -> Component) -> StackComponent<Component> {
         let stack = StackComponent(components: components).setAxis(.vertical)
         addSubview(stack)
         stack.fillSuperview()
