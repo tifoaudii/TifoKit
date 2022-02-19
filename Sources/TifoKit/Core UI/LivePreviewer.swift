@@ -22,7 +22,7 @@ public extension UIViewController {
         func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
     }
 
-    func preview() -> some View {
+    func preview() -> some SwiftUI.View {
         Preview(viewController: self)
     }
 }
