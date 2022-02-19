@@ -12,8 +12,8 @@ import UIKit
         view
     }
     
-    public static func buildBlock(_ views: ContentView...) -> [ContentView] {
-        views.compactMap { $0 }
+    public static func buildBlock(_ views: ContentView...) -> CollectionContentView {
+        CollectionContentView(contents: views.compactMap { $0 })
     }
     
     public static func buildIf(_ view: ContentView?) -> ContentView {
@@ -33,3 +33,15 @@ extension Array: ContentView where Element: UIView {
     public func asView() -> [UIView] { self }
 }
 
+public struct CollectionContentView: ContentView {
+    
+    private let contents: [ContentView?]
+    
+    init(contents: [ContentView]) {
+        self.contents = contents
+    }
+    
+    public func asView() -> [UIView] {
+        contents.compactMap { $0 }.flatMap { $0.asView() }
+    }
+}

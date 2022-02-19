@@ -9,11 +9,11 @@ import UIKit
 
 public final class HGroup: UIStackView {
     
-    public init(@ComponentBuilder views: () -> [ContentView]) {
+    public init(@ComponentBuilder views: () -> ContentView) {
         super.init(frame: .zero)
         axis = .horizontal
         translatesAutoresizingMaskIntoConstraints = false
-        views().compactMap { $0 }.flatMap { $0.asView() }.forEach { addArrangedSubview($0) }
+        views().asView().forEach { addArrangedSubview($0) }
     }
     
     public required init(coder: NSCoder) {

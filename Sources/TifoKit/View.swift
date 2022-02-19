@@ -13,7 +13,7 @@ public final class View: UIView {
         super.init(frame: .zero)
     }
     
-    public init(@ComponentBuilder views: () -> [ContentView]) {
+    public init(@ComponentBuilder views: () -> ContentView) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         let contentView = VGroup(views: views)
